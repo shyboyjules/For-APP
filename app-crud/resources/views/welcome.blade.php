@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>SweetCrave</title>
+    <title>Savory Bliss</title>
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link rel="stylesheet" href="/css/welcome.css">
     <link rel="shortcut icon" type="x-icon" href="images/ice-cream-logo.png">
@@ -14,7 +14,7 @@
 <body class="bg-white text-gray-900">
     <div class="container mx-auto p-4">
         <header class="flex items-center justify-between py-6">
-            <div class="text-3xl font-bold text-black">SweetCrave</div>
+            <div class="text-3xl font-bold text-black">Savory Bliss</div>
             <nav class="flex space-x-4">
                 <a href="{{ route('register') }}" class="px-3 py-2 bg-pink-300 text-black rounded-md hover:bg-pink-400 transition">Register</a>
                 <a href="{{ route('login') }}" class="px-3 py-2 bg-pink-300 text-black rounded-md hover:bg-pink-400 transition">Login</a>
@@ -25,7 +25,7 @@
 
     <main class="hero">
     <div class="hero-content">
-        <img src="{{ asset('images/ad.png') }}" alt="Advertisement" class="hero-image">
+        <img src="{{ asset('images/savory-bliss-add.png') }}" alt="Advertisement" class="hero-image">
     </div>
 </main>
 
