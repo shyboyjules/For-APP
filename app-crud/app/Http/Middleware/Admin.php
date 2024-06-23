@@ -15,12 +15,11 @@ class Admin
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
     public function handle(Request $request, Closure $next): Response
-    {
-        if(Auth::user()->usertype !='admin')
-        {
-            return redirect('dashboard');
-        }
-
-        return $next($request);
+{
+    if (Auth::check() && Auth::user()->usertype != 'admin') {
+        return redirect()->route('user.dashboard'); // Redirect non-admin users to user dashboard
     }
+
+    return $next($request);
+}
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\Food;
 
 class ProductController extends Controller
 {
@@ -55,4 +56,34 @@ class ProductController extends Controller
         $product->delete();
         return redirect(route('prod.index',))->with('success', 'Product deleted successfully');
     }
+//-------------------------------------------FOOD-----------------------------------------------------------//
+    public function foodmenu()
+    {
+        return view("admin.foodmenu");
+    }
+
+    public function upload(Request $request)
+{
+    $data = new Food;
+
+    // Handle file upload
+    if ($request->hasFile('image')) {
+        $image = $request->file('image');
+        $imageName = time() . '.' . $image->getClientOriginalExtension();
+        $image->move(public_path('foodimage'), $imageName);
+        $data->image = $imageName; // Save only the filename to the database
+    }
+
+    // Assign other form inputs to the model attributes
+    $data->name = $request->name;
+    $data->qty = $request->qty;
+    $data->price = $request->price;
+    $data->description = $request->description;
+
+    // Save the data to the database
+    $data->save();
+
+    // Redirect back with success message
+    return redirect()->back()->with('success', 'Data and image uploaded successfully.');
+}
 }

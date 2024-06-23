@@ -15,15 +15,25 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
-    Route::get('/product', [ProductController::class, 'index'])->name('prod.index');
-    Route::get('/product/create', [ProductController::class, 'create'])->name('product.create');
-    Route::post('/product', [ProductController::class, 'store'])->name('product.store');
-    Route::get('/product/{product}/edit', [ProductController::class, 'edit'])->name('prod.edit');
-    Route::put('/product/{product}/update', [ProductController::class, 'update'])->name('product.update');
-    Route::delete('/product/{product}/destroy', [ProductController::class, 'destroy'])->name('product.destroy');
+    Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');
+    // Admin Dashboard
+    Route::middleware(['admin'])->group(function () {
+        Route::get('/admin/dashboard', function () {
+            return view('admin.dashboard');
+        })->name('admin.dashboard');
+    });
+
+    // User Dashboard
+    Route::get('/user/dashboard', function () {
+        return view('user.dashboard');
+    })->name('user.dashboard');
+    
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::get('/foodmenu', [ProductController::class, 'foodmenu'])->name('admin.foodmenu');
+    Route::post('/uploadfood', [ProductController::class, 'upload'])->name('upload.food');
+
     
 });
 

@@ -72,4 +72,7 @@ class Kernel extends HttpKernel
         'check.user.role' => \App\Http\Middleware\CheckUserRole::class, // Register the custom middleware
         'role' => \App\Http\Middleware\RoleMiddleware::class,
     ];
+
+    
+
 }
