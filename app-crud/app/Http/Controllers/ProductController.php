@@ -13,6 +13,8 @@ class ProductController extends Controller
         return view('prod.index', ['product' => $product]);
     }
 
+    
+
     public function create(){
         return view('prod.create');
     }

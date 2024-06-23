@@ -22,3 +22,4 @@
     </div>
     @include("food")
 </x-app-layout>
+

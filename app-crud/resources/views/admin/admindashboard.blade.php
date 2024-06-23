@@ -27,5 +27,12 @@
                 </form>
             </div>
         </div>
-    </div>
+    @endforeach
+</div>
+
+
+</body>
+</html>
+
+
 </x-app-layout>
